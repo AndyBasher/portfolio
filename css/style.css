@@ -1,0 +1,1088 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#404040, #151415);
+}
+
+.banner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    height: 320px;
+    background: #fa215e;
+    z-index: 1;
+    transition: 1s;
+}
+
+.banner.active:before {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #151415;
+}
+
+.banner:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    width: 400px;
+    height: 200px;
+    background: #aeff0f;
+    z-index: 1;
+    transition: 1s;
+}
+
+.banner.active:after {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: #151415;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+}
+
+header .logo {
+    font-size: 2em;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 1s;
+    transform-origin: right;
+}
+
+.banner.active .logo {
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.toggle {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(../img/menu.png) no-repeat center;
+    background-size: 30px;
+    cursor: pointer;
+}
+
+.toggle.active {
+    background: url(../img/close.png) no-repeat center;
+    background-size: 25px;
+    cursor: pointer;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 1s;
+    transform-origin: right;
+}
+
+.banner.active .content {
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.content .content-box {
+    max-width: 600px;
+}
+
+.content .content-box h2 {
+    font-size: 4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #fff;
+    animation: glitch-text 3s steps(100) infinite;
+}
+
+.content .content-box p {
+    font-size: 1em;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.content .content-box a {
+    display: inline-block;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: glitch-btn 3s steps(100) infinite;
+
+}
+
+.content .content-box a:hover {
+    letter-spacing: 4px;
+
+    background: linear-gradient(90deg, red 25%, lime 45%, blue 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content .img-box img {
+    max-width: 100%;
+    min-width: 400px;
+
+}
+
+.sci {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    transform-origin: right;
+    z-index: 2;
+}
+
+.banner.active .sci {
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.sci li {
+    list-style: none;
+
+}
+
+.sci li a {
+    display: inline-block;
+    margin-right: 20px;
+    filter: invert(1);
+    transform: scale(0.6);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 0s;
+    background: #151415;
+}
+
+.banner.active .menu {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu li a {
+    color: #fff;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 20px 40px;
+    }
+
+    .banner {
+        padding: 40px;
+        overflow: hidden;
+    }
+
+    .banner:before {
+        top: 100px;
+        left: 0;
+        width: 170px;
+        height: 310px;
+    }
+
+    .banner:after {
+        bottom: 100px;
+        right: 0;
+        width: 80px;
+        height: 60px;
+    }
+
+    .content {
+        flex-direction: column-reverse;
+        margin: 50px 0;
+    }
+
+    .content .content-box {
+        max-width: 100%;
+    }
+
+    .content .img-box img {
+        max-width: 75%;
+        min-width: 300px;
+    }
+
+    .content .content-box h2 {
+        font-size: 2em;
+    }
+
+    .content .content-box p {
+        font-size: 0.9em;
+    }
+}
+
+@keyframes glitch-text {
+    0% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    1% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    2% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    3% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    4% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    5% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    6% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    7% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    8% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    9% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    10% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    11% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    12% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    13% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    14% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    15% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    16% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    17% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    18% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    19% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    20% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    21% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    22% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    23% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    24% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    25% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    26% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    27% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    28% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    29% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    30% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    31% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    32% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    33% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    34% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    35% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    36% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    37% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    38% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    39% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    40% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    41% {
+        text-shadow: 50px 0 0 blue, -50px 0 0 lime;
+    }
+
+    42% {
+        text-shadow: 0 0 0 blue, 0 0 0 lime;
+    }
+
+    43% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    44% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    45% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    46% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    47% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    48% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    49% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    50% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    51% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    52% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    53% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    54% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    55% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    56% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    57% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    58% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    59% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    60% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    61% {
+        text-shadow: 30px 0 0 red, -30px 0 0 lime;
+    }
+
+    62% {
+        text-shadow: 0 0 0 red, 0 0 0 lime;
+    }
+
+    63% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    64% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    65% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    66% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    67% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    68% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    69% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    70% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    71% {
+        text-shadow: 70px 0 0 red, -70px 0 0 blue;
+    }
+
+    72% {
+        text-shadow: 0 0 0 red, 0 0 0 blue;
+    }
+
+    73% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    74% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    75% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    76% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    77% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    78% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    79% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    80% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    81% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    82% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    83% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    84% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    85% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    86% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    87% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    88% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    89% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    90% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    91% {
+        text-shadow: 60px 0 0 lime, -60px 0 0 blue;
+    }
+
+    92% {
+        text-shadow: 0 0 0 lime, 0 0 0 blue;
+    }
+
+    92% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    93% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    94% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    95% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    96% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    97% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    98% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    99% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    100% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+}
+
+@keyframes glitch-btn {
+    0% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    1% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    2% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    3% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    4% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    5% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    6% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    7% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    8% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    9% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    10% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    11% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    12% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    13% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    14% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    15% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    16% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    17% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    18% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    19% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    20% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    21% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    22% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    23% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    24% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    25% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    26% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    27% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    28% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    29% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    30% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    31% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    32% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    33% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    34% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    35% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    36% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    37% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    38% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    39% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    40% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    41% {
+        box-shadow: 50px 0 0 blue, -50px 0 0 lime;
+    }
+
+    42% {
+        box-shadow: 0 0 0 blue, 0 0 0 lime;
+    }
+
+    43% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    44% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    45% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    46% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    47% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    48% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    49% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    50% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    51% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    52% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    53% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    54% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    55% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    56% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    57% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    58% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    59% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    60% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    61% {
+        box-shadow: 30px 0 0 red, -30px 0 0 lime;
+    }
+
+    62% {
+        box-shadow: 0 0 0 red, 0 0 0 lime;
+    }
+
+    63% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    64% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    65% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    66% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    67% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    68% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    69% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    70% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    71% {
+        box-shadow: 70px 0 0 red, -70px 0 0 blue;
+    }
+
+    72% {
+        box-shadow: 0 0 0 red, 0 0 0 blue;
+    }
+
+    73% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    74% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    75% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    76% {
+        box-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    77% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    78% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    79% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    80% {
+        box-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    81% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    82% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    83% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    84% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    85% {
+        box-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    86% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    87% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    88% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    89% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    90% {
+        box-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    91% {
+        box-shadow: 60px 0 0 lime, -60px 0 0 blue;
+    }
+
+    92% {
+        box-shadow: 0 0 0 lime, 0 0 0 blue;
+    }
+
+    92% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    93% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    94% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    95% {
+        box-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    96% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    97% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    98% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    99% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    100% {
+        box-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+}
